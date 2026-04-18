@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WolfBet - Dice Betting Game</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            animation: fadeIn 2s;
+        }
+        button {
+            background-color: #0072ff;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #00c6ff;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to WolfBet</h1>
+        <p>Your favorite dice betting game!</p>
+        <button onclick="startGame()">Start Betting</button>
+        <div id="stats">
+            <h2>Game Stats</h2>
+            <p id="wins">Wins: 0</p>
+            <p id="losses">Losses: 0</p>
+            <p id="totalRolls">Total Rolls: 0</p>
+        </div>
+    </div>
+    <script>
+        let wins = 0;
+        let losses = 0;
+        let totalRolls = 0;
+
+        function startGame() {
+            // Logic for starting the dice game, including animation and updates to stats
+            const roll = Math.floor(Math.random() * 6) + 1; // Simulated dice roll
+            totalRolls++;
+            document.getElementById('totalRolls').innerText = `Total Rolls: ${totalRolls}`;
+            // Simulate win/loss conditions
+            if (roll > 3) {
+                wins++;
+                document.getElementById('wins').innerText = `Wins: ${wins}`;
+            } else {
+                losses++;
+                document.getElementById('losses').innerText = `Losses: ${losses}`;
+            }
+        }
+    </script>
+</body>
+</html>
